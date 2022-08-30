@@ -16,5 +16,6 @@ const cnf = {
   displayError: null,
   displayErrorFilter: null,
   textFilter: '',
-  displayResultsFilter: null
+  displayResultsFilter: null,
+  fieldInput: null
 };
