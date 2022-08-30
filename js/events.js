@@ -11,3 +11,20 @@ Array.from(document.querySelectorAll(".muestra p:first-of-type span"))
 
 Array.from(document.querySelectorAll(".muestra .results"))
   .forEach( element => cnf.container = element )
+
+Array.from(document.querySelectorAll(".filtrado div:first-of-type"))
+  .forEach( element => cnf.containerFilters = element)
+
+Array.from(document.querySelectorAll(".filtrado .resultsFilter"))
+  .forEach( element => cnf.displayResultsFilter = element)
+
+document.querySelector("#filter").addEventListener("keyup", ({ target: { value } }) => {
+  cnf.textFilter = value
+  beginFilter(false)
+})
+
+cnf.displayError = document.querySelectorAll(".filtrado .error")[0];
+cnf.displayErrorFilter = document.querySelectorAll(".filtrado p:last-of-type")[0];
+
+Array.from(document.querySelectorAll(".filtrado div:last-of-type button"))
+  .forEach( element => element.addEventListener("click", () => beginFilter(true)))
