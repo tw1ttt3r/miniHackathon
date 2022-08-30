@@ -1,0 +1,4 @@
+@mixin grid {
+  display: grid;
+  grid-template: [row1-start] repeat(5, 1fr) [row1-end] / repeat(3, 1fr);
+}

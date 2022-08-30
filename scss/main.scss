@@ -1,4 +1,5 @@
 @import 'reset';
+@import 'mixin';
 
 body {
   width: 100vw;
@@ -36,8 +37,17 @@ body {
 
   .muestra {
     .results {
-      display: grid;
-      grid-template: [row1-start] repeat(5, 1fr) [row1-end] / repeat(3, 1fr)
+      @include grid;
+    }
+  }
+
+  .filtrado {
+    div:first-of-type {
+      display: flex;
+      gap: 8px;
+    }
+    .resultsFilter {
+      @include grid;
     }
   }
 }
