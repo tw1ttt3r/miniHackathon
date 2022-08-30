@@ -1,0 +1,43 @@
+@import 'reset';
+
+body {
+  width: 100vw;
+  height: 100vh;
+
+  header {
+    padding: 16px;
+    text-align: center;
+  }
+
+  main {
+    padding: 16px;
+    text-align: center;
+  }
+
+  section:first-of-type{
+    ul {
+      display: flex;
+      li {
+        list-style: none;
+        flex-grow: 1;
+        padding: 16px;
+
+        &:hover {
+          cursor: pointer;
+          border: .5px solid #f00;
+        }
+
+        p {
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  .muestra {
+    .results {
+      display: grid;
+      grid-template: [row1-start] repeat(5, 1fr) [row1-end] / repeat(3, 1fr)
+    }
+  }
+}
