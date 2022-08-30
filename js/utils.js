@@ -2,7 +2,7 @@ function fetchData(endpoint) {
   fetch(endpoint)
     .then(res => res.json())
     .then(({ results }) => {
-      cnf.container.innerHTML = '';
+      reset();
       cnf.allData = results;
       cnf.displayResults.innerHTML = results.length;
       renderFilters()
@@ -12,6 +12,16 @@ function fetchData(endpoint) {
       }
       beginGetDataPokemon(results);
     })
+}
+
+function reset() {
+  cnf.container.innerHTML = '';
+  cnf.displayResultsFilter.innerHTML = '';
+  cnf.displayErrorFilter.innerHTML = ''
+  cnf.displayError.innerHTML = '';
+  cnf.filterSelected = [];
+  cnf.textFilter = '';
+  cnf.fieldInput.value = '';
 }
 
 function beginGetDataPokemon(results) {
