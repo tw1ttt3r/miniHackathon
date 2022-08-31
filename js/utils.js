@@ -25,17 +25,21 @@ function reset() {
 }
 
 function beginGetDataPokemon(results) {
-  results.forEach( async( { url }, i) => {
-    await fetchPokemons(url, i)})
+  results.forEach(( { url }, i) => {
+    fetchPokemons(url, i)})
 }
 
 async function fetchPokemons(url, position) {
-  const fetcher = await fetch(url);
-  const data = await fetcher.json();
-
-  const registro = cnf.allData[position];
-  cnf.allData[position]= { ...registro, ...data }
-  renderResult(registro.name, data.sprites.front_default)
+  try {
+    const fetcher = await fetch(url);
+    const data = await fetcher.json();
+  
+    const registro = cnf.allData[position];
+    cnf.allData[position]= { ...registro, ...data }
+    renderResult(registro.name, data.sprites.front_default)
+  } catch(err) {
+    console.log("error detectado")
+  }
 }
 
 function renderResults() {
